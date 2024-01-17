@@ -1,0 +1,103 @@
+<!-- Include this line at the top of your HTML file to enable Angular forms -->
+
+<div class="container text-center mt-5">
+  <h2>Update Customer</h2>
+</div>
+<form #myForm="ngForm" (ngSubmit)="submitForm()">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <div class="row">
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            name="firstName"
+            placeholder="First Name"
+            [(ngModel)]="customer.firstName"
+          />
+        </div>
+        <div class="row mt-2">
+          <input
+            type="text"
+            class="form-control"
+            id="street"
+            name="street"
+            placeholder="Street"
+            [(ngModel)]="customer.street"
+          />
+        </div>
+        <div class="row mt-2">
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            name="city"
+            placeholder="City"
+            [(ngModel)]="customer.city"
+          />
+        </div>
+        <div class="row mt-2">
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Email"
+            [(ngModel)]="customer.email"
+          />
+        </div>
+      </div>
+      <div class="col mx-5">
+        <div class="row">
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            name="lastName"
+            placeholder="Last Name"
+            [(ngModel)]="customer.lastName"
+          />
+        </div>
+        <div class="row mt-2">
+          <input
+            type="text"
+            class="form-control"
+            id="address"
+            name="address"
+            placeholder="Address"
+            [(ngModel)]="customer.address"
+          />
+        </div>
+        <div class="row mt-2">
+          <input
+            type="text"
+            class="form-control"
+            id="state"
+            name="state"
+            placeholder="State"
+            [(ngModel)]="customer.state"
+          />
+        </div>
+        <div class="row mt-2">
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            name="phone"
+            placeholder="Phone"
+            [(ngModel)]="customer.phone"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col text-end">
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

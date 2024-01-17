@@ -1,0 +1,96 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header class="text-center"
+      ><h2>Customer List</h2></mat-card-header
+    >
+    <div class="row">
+      <div class="col">
+        <!-- Add Customer button -->
+        <button class="btn btn-primary" [routerLink]="'/add-customer'">
+          Add Customer
+        </button>
+      </div>
+      <div class="col">
+        <!-- Search by dropdown list -->
+        <div class="form-group">
+          <select
+            class="form-control"
+            id="searchOption"
+            [(ngModel)]="selectedSearchOption"
+          >
+            <option value="firstName">First Name</option>
+            <option value="city">City</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <!-- Search input with icon -->
+        <!-- Search input with Font Awesome icon -->
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search..."
+            aria-label="Search"
+            aria-describedby="searchIcon"
+            [(ngModel)]="searchText"
+            (input)="onSearchInput()"
+          />
+          <div class="input-group-append">
+            <span class="input-group-text" id="searchIcon">
+              <i class="fas fa-search" (click)="searchCustomers()"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Street</th>
+              <th scope="col">Address</th>
+              <th scope="col">City</th>
+              <th scope="col">State</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of filteredCustomers">
+              <td>{{ c.firstName }}</td>
+              <td>{{ c.lastName }}</td>
+              <td>{{ c.street }}</td>
+              <td>{{ c.address }}</td>
+              <td>{{ c.city }}</td>
+              <td>{{ c.state }}</td>
+              <td>{{ c.email }}</td>
+              <td>{{ c.phone }}</td>
+              <td>
+                <button
+                  class="btn btn-sm btn-danger"
+                  (click)="deleteCustomer(c.customerId)"
+                >
+                  <i class="fas fa-trash"></i>
+                </button>
+                <button
+                  class="btn btn-sm mx-2 btn-secondary"
+                  [routerLink]="'/update-customer/' + c.customerId"
+                >
+                  <i class="fas fa-edit"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mat-card>
+</div>
